@@ -11,23 +11,25 @@ const selectedLocale = ref(locale)
 
 const localeChange = (newLocale) => {
   selectedLocale.value = newLocale
+  localStorage.setItem('selectedLocale', newLocale)
 }
-let crispLocale = locale.value;
 
+const lang = ref(localStorage.getItem('selectedLocale'))
+let crispLocale = lang.value
 Crisp.configure(CRISP_WEBSITE_ID, {
-    locale: crispLocale
-});
+  locale: crispLocale
+})
 
-watch(selectedLocale, (newLocale) => {
-    if (newLocale) {
-    Crisp.configure(CRISP_WEBSITE_ID, {
-            locale: newLocale
-        });
-   }
-    
-});
-
-
+watch(selectedLocale, (newValue) => {
+  Crisp.configure(CRISP_WEBSITE_ID, {
+    locale: newValue
+  })
+})
+watch(selectedLocale, (newValue) => {
+  localeChange(newValue)
+  localStorage.setItem('selectedLocale', newValue)
+  
+})
 </script>
 
 <template>

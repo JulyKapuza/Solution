@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
 
 const box = ref(null)
@@ -22,16 +22,17 @@ onMounted(() => {
   boxAnimation
     .to(box3.value, { y: '-=500', opacity: 0, duration: 2.5 })
     .set(box3.value, { y: '+=500', opacity: 1 })
+  
 })
 </script>
 
 <template>
   <div class="flex">
-    <div
+    <h1
       class="max-w-[720px] text-bg-gradient text-[64px] font-semibold leading-[110%] font-['Roboto']"
     >
       {{ $t('header') }}
-    </div>
+    </h1>
 
     <div class="flex flex-col gap-10 relative" ref="container">
       <div class="box" ref="box">deploy completed</div>

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vueform/multiselect": "^2.6.6",
+    "@vueuse/core": "^10.6.1",
     "crisp-sdk-web": "^1.0.21",
     "gsap": "^3.12.2",
     "vue": "^3.3.4",
